@@ -1,24 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
-    [SerializeField] KeyCode firePrimaryKey;
-    [SerializeField] KeyCode upKey, downKey, leftKey, rightKey;
+    [SerializeField] float moveStep;
 
-    void FixedUpdate()
+    public void MoveInDirection(InputAction.CallbackContext context)
     {
-        if (Input.GetKey(upKey))
-            MoveInDirection(Vector3.up);
-        if (Input.GetKey(downKey))
-            MoveInDirection(Vector3.down);
-        if (Input.GetKey(leftKey))
-            MoveInDirection(Vector3.left);
-        if (Input.GetKey(rightKey))
-            MoveInDirection(Vector3.right);
+        Vector2 movement = context.ReadValue<Vector2>();
+        transform.Translate(moveStep * Time.fixedDeltaTime * movement.normalized);
     }
-
-    void MoveInDirection(Vector3 dir) => transform.Translate(moveSpeed * Time.fixedDeltaTime * dir.normalized);
 }
