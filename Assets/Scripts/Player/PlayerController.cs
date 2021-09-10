@@ -1,15 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float moveStep;
+    [SerializeField] float force = 0;
+    [SerializeField] float maxSpeed;
 
-    public void MoveInDirection(InputAction.CallbackContext context)
+    Rigidbody rb;
+
+    [SerializeField] GlobalVector2Variable movement;
+
+    void Start() => rb = GetComponent<Rigidbody>();
+
+    void OnMove(InputValue movementValue) => movement.Value = movementValue.Get<Vector2>();
+
+    void FixedUpdate()
     {
-        Vector2 movement = context.ReadValue<Vector2>();
-        transform.Translate(moveStep * Time.fixedDeltaTime * movement.normalized);
+        Vector3 move = new Vector3(movement.Value.x, 0.0f, movement.Value.y);
+        float currentSpeed = rb.velocity.magnitude;
+        if (currentSpeed < maxSpeed)
+            rb.AddForce(move * force);
+    }
+
+    public float Speed
+    {
+        get { return force; }
+        set { force = value; }
     }
 }

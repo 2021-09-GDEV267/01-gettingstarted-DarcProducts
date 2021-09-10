@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectPooler : ScriptableObject
 {
     [SerializeField] GameObject objectToPool;
-    readonly List<GameObject> objectPool;
+    readonly List<GameObject> objectPool = new List<GameObject>(0);
 
     public GameObject GetObject()
     {
@@ -21,6 +21,9 @@ public class ObjectPooler : ScriptableObject
             return newObject;
         }
         else
+        {
+            Debug.LogWarning($"{this.name} has no prefab");
             return null;
+        }
     }
 }
