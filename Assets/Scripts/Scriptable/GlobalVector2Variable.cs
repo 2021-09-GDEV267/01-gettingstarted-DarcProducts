@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Variables/New Vector2 Variable")]
 public class GlobalVector2Variable : ScriptableObject
 {
-    [Header("Value Changes Dynamically")]
     [SerializeField] Vector2 value;
 
     [Space(16)]

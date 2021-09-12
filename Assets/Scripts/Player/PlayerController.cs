@@ -4,27 +4,42 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float force = 0;
-    [SerializeField] float maxSpeed;
+    [SerializeField] float maxVelocity;
+    [SerializeField] Transform cameraRotator;
 
     Rigidbody rb;
 
-    [SerializeField] GlobalVector2Variable movement;
+    [SerializeField] GlobalVector2Variable movementH;
 
     void Start() => rb = GetComponent<Rigidbody>();
 
-    void OnMove(InputValue movementValue) => movement.Value = movementValue.Get<Vector2>();
+    public void OnMove(InputValue movementValue) => movementH.Value = movementValue.Get<Vector2>();
 
     void FixedUpdate()
     {
-        Vector3 move = new Vector3(movement.Value.x, 0.0f, movement.Value.y);
+        float move = movementH.Value.y;
         float currentSpeed = rb.velocity.magnitude;
-        if (currentSpeed < maxSpeed)
-            rb.AddForce(move * force);
+        Vector3 dir = cameraRotator.transform.forward;
+        if (currentSpeed < maxVelocity)
+            rb.AddForce(force * move * dir, ForceMode.Force);
     }
 
-    public float Speed
+    public float Force
     {
         get { return force; }
         set { force = value; }
+    }
+
+    public float MaxVelocity
+    {
+        get { return maxVelocity; }
+        set { maxVelocity = value; }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        ICollectable collectable = other.GetComponent<ICollectable>();
+        if (collectable != null)
+            collectable.Collect();
     }
 }

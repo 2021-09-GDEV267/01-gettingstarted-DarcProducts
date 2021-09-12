@@ -3,15 +3,14 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour, IDamagable
 {
-    public UnityAction OnPlayerDied;
-
-    [Header("Value Changes Dynamically")]
-    [SerializeField] float currentHealth;
+    public static UnityAction OnPlayerDied;
 
     [Space(16)]
     [SerializeField] float maxHealth;
     [Space(16)]
     [SerializeField] ObjectPooler damageEffectPool;
+
+    float currentHealth;
 
     void Start() => currentHealth = maxHealth;
 
@@ -19,17 +18,22 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     {
         currentHealth -= dmg;
 
-        if (damageEffectPool != null)
-        {
-            GameObject effect = damageEffectPool.GetObject();
-            effect.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
-            effect.SetActive(true);
-        }
+        ActivateDamageEffect();
 
         if (currentHealth <= 0)
         {
             OnPlayerDied?.Invoke();
             gameObject.SetActive(false);
+        }
+    }
+
+    public void ActivateDamageEffect()
+    {
+        if (damageEffectPool != null)
+        {
+            GameObject effect = damageEffectPool.GetObject();
+            effect.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
+            effect.SetActive(true);
         }
     }
 }

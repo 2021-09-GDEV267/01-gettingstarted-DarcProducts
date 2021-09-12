@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "e7696c87-1a1d-4192-8439-9e9f23805ab3",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -15,7 +15,7 @@
                 },
                 {
                     "name": "Look",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "7232e358-7dcf-45da-86c7-04d9a8952ecd",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -23,7 +23,7 @@
                 },
                 {
                     "name": "Fire",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "43deccb5-4742-4d1f-9012-6e4d16db8c62",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -31,15 +31,15 @@
                 },
                 {
                     "name": "AltFire",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "2b64e3ba-08d0-4d50-87a0-237cef89726e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Special",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "4677f243-2d4d-4ce0-859e-77d639b63e63",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -61,7 +61,7 @@
                 {
                     "name": "WASD",
                     "id": "00ca640b-d935-4593-8157-c05846ea39b3",
-                    "path": "Dpad",
+                    "path": "Dpad(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -319,7 +319,7 @@
             "actions": [
                 {
                     "name": "Navigate",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "75c817d1-1011-49ef-896d-4f9bb0f7370f",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -327,7 +327,7 @@
                 },
                 {
                     "name": "Submit",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "20970913-915a-4a93-b712-0be24933f29f",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -335,7 +335,7 @@
                 },
                 {
                     "name": "Cancel",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "f44dfa1b-b41c-4962-ad93-ea8a34ea0a17",
                     "expectedControlType": "Button",
                     "processors": "",
