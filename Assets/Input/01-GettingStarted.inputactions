@@ -38,9 +38,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Special",
+                    "name": "Escape",
                     "type": "PassThrough",
-                    "id": "4677f243-2d4d-4ce0-859e-77d639b63e63",
+                    "id": "fb6ac311-a24d-4bea-a385-83af8e6e1be1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -302,12 +302,12 @@
                 },
                 {
                     "name": "",
-                    "id": "5158ba57-9b64-4235-8013-d3d4c17538fd",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "id": "9b285446-edda-4ff0-b757-bec379b26767",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Special",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

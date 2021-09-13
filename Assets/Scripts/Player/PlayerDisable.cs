@@ -39,4 +39,6 @@ public class PlayerDisable : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    public void SetStartingPos(Vector3 newPos) => startingPos = newPos;
 }
