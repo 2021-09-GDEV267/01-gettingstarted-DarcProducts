@@ -14,7 +14,9 @@ public class GamePauser : MonoBehaviour
 
     void OnDisable() => pauseAction.action.performed -= GamePause;
 
-    private void GamePause(InputAction.CallbackContext obj)
+    public void Pause() => GamePause();
+
+    public void GamePause(InputAction.CallbackContext obj = default)
     {
         switch (gamePaused)
         {

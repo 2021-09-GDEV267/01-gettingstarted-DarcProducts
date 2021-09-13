@@ -9,9 +9,9 @@ public class WinTrigger : MonoBehaviour
     
     void OnTriggerStay(Collider other)
     {
-        timeToTriggerWin -= Time.fixedDeltaTime;
+        timeToTriggerWin = timeToTriggerWin < 0 ? 0 : timeToTriggerWin -= Time.deltaTime;
         if (timeToTriggerWin.Equals(0))
-            ui.UpdateWin();
+            ui.UpdateWin();       
     }
 }
  

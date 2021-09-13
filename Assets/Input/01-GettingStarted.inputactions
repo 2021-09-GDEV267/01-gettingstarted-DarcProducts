@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Escape",
+                    "name": "Pause",
                     "type": "PassThrough",
                     "id": "fb6ac311-a24d-4bea-a385-83af8e6e1be1",
                     "expectedControlType": "Button",
@@ -303,11 +303,11 @@
                 {
                     "name": "",
                     "id": "9b285446-edda-4ff0-b757-bec379b26767",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/space",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Escape",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
